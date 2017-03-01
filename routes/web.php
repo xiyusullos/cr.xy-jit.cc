@@ -14,3 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group([
+    'prefix'        => config('admin.prefix'),
+    'middleware'    => ['admin'],
+], function () {
+
+    // $router->get('/', 'HomeController@index');
+    Route::get('/classrooms', 'ClassroomsController@index');
+    Route::resource('/classrooms', ClassroomsController::class);
+    Route::resource('/reservations', ReservationsController::class);
+});

@@ -21,3 +21,16 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+$factory->define(App\Entities\Classroom::class, function (Faker\Generator $faker) {
+    return [
+        'number' => $faker->word,
+        'name' => $faker->name,
+        'location' => $faker->word,
+        'square' => $faker->randomFloat(),
+        'floor' => $faker->randomNumber(),
+        'is_free' => $faker->boolean,
+        'building_name' => $faker->word,
+        'deleted_at' => $faker->dateTimeBetween(),
+    ];
+});
+
