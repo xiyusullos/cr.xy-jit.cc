@@ -26,7 +26,9 @@ class AppServiceProvider extends ServiceProvider
         $productionServiceProviders = [
             // For production
             \Encore\Admin\Providers\AdminServiceProvider::class,
+            \Prettus\Repository\Providers\RepositoryServiceProvider::class,
             \App\Providers\RepositoryServiceProvider::class,
+            \Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
         ];
         foreach ($productionServiceProviders as $serviceProvider) {
             $this->app->register($serviceProvider);

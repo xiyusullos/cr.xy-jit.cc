@@ -12,6 +12,9 @@ use Prettus\Repository\Presenter\FractalPresenter;
  */
 class ProfilePresenter extends FractalPresenter
 {
+    protected $resourceKeyItem = 'profile';
+    protected $resourceKeyCollection = 'profiles';
+
     /**
      * Transformer
      *

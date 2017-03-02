@@ -12,6 +12,9 @@ use Prettus\Repository\Presenter\FractalPresenter;
  */
 class ReservationPresenter extends FractalPresenter
 {
+    protected $resourceKeyItem = 'reservation';
+    protected $resourceKeyCollection = 'reservations';
+
     /**
      * Transformer
      *
