@@ -26,5 +26,3 @@ Route::group([
     Route::resource('/reservations', ReservationsController::class);
     // Route::resource('/reservations', ReservationsController::class);
 });
-
-Route::post('/auths', 'AuthenticatesController@login');

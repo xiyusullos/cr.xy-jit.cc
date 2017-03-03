@@ -38,6 +38,13 @@ use App\Repositories\Contracts\ClassroomRepository;
 use App\Validators\ClassroomValidator;
 
 
+/**
+ * Class ClassroomsController
+ *
+ * @package App\Http\Controllers
+ *
+ * @resource 02-classrooms
+ */
 class ClassroomsController extends Controller
 {
     use ModelForm;
@@ -110,7 +117,10 @@ class ClassroomsController extends Controller
 
 
     /**
-     * Display a listing of the resource.
+     * 教室列表
+     *      当前可用教室查看 /api/classrooms?search=is_free:1
+     *      筛选可用教室（面积大小、教学楼、时间段）
+     *
      *
      * @return \Illuminate\Http\Response
      */
