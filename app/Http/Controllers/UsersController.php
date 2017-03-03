@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginRequest;
 use App\Http\Requests\ResetPasswordRequest;
 use Illuminate\Http\Request;
 
@@ -14,6 +15,14 @@ use App\Repositories\Contracts\UserRepository;
 use App\Validators\UserValidator;
 
 
+/**
+ * Class UsersController
+ *
+ * @package App\Http\Controllers
+ *
+ * @resource 01-users
+ * 用户
+ */
 class UsersController extends Controller
 {
 
@@ -33,6 +42,10 @@ class UsersController extends Controller
         $this->validator  = $validator;
     }
 
+    public function create()
+    {
+
+    }
 
     /**
      * Display a listing of the resource.
@@ -55,7 +68,7 @@ class UsersController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * 注册
      *
      * @param  UserCreateRequest $request
      *
@@ -98,7 +111,7 @@ class UsersController extends Controller
 
 
     /**
-     * Display the specified resource.
+     * 查看个人信息
      *
      * @param  int $id
      *
@@ -136,7 +149,7 @@ class UsersController extends Controller
 
 
     /**
-     * Update the specified resource in storage.
+     * 修改个人信息
      *
      * @param  UserUpdateRequest $request
      * @param  string            $id
@@ -200,7 +213,58 @@ class UsersController extends Controller
         return redirect()->back()->with('message', 'User deleted.');
     }
 
-    public function resetPassword(ResetPasswordRequest $request)
+
+    /**
+     * 登录
+     *
+     * @param LoginRequest $request
+     *
+     * @return $this|\Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
+     */
+    public function login(LoginRequest $request)
+    {
+        try {
+
+            $this->validator->with($request->all())
+                ->passesOrFail(ValidatorInterface::RULE_CREATE);
+
+            $user = $this->repository->postLogin();
+
+            $response = [
+                'message' => 'Login succeeded.',
+                'data'    => $user,
+            ];
+
+            if ($request->wantsJson()) {
+
+                return response()->json($response);
+            }
+
+            return redirect()->back()
+                ->with('message', $response['message']);
+        } catch (ValidatorException $e) {
+            if ($request->wantsJson()) {
+                return response()->json([
+                    'error'   => true,
+                    'message' => $e->getMessageBag()
+                ]);
+            }
+
+            return redirect()->back()
+                ->withErrors($e->getMessageBag())
+                ->withInput();
+        }
+    }
+
+
+    /**
+     * 重置密码
+     *
+     * @param ResetPasswordRequest $request
+     *
+     * @return $this|\Illuminate\Http\JsonResponse
+     */
+    public function resetPassword(ResetPasswordRequest $request, $id)
     {
         $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
 
@@ -218,5 +282,4 @@ class UsersController extends Controller
 
         return redirect()->back()->withErrors('message', $response['message']);
     }
-
 }

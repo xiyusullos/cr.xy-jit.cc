@@ -42,6 +42,7 @@ class AppServiceProvider extends ServiceProvider
             \Orangehill\Iseed\IseedServiceProvider::class,
             \Iber\Generator\ModelGeneratorProvider::class,
             \Mpociot\LaravelTestFactoryHelper\TestFactoryHelperServiceProvider::class,
+            \Mpociot\ApiDoc\ApiDocGeneratorServiceProvider::class,
         ];
 
         if ($this->app->environment() == 'local') {

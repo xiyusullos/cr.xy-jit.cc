@@ -38,6 +38,12 @@ use App\Repositories\Contracts\ReservationRepository;
 use App\Validators\ReservationValidator;
 
 
+/**
+ * Class ReservationsController
+ * @package App\Http\Controllers
+ * @resource 03-reservations
+ * 教室租赁
+ */
 class ReservationsController extends Controller
 {
 

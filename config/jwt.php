@@ -73,7 +73,7 @@ return [
     |
     */
 
-    'user' => \App\Entities\Authenticate::class,
+    'user' => \App\Entities\User::class,
 
     /*
     |--------------------------------------------------------------------------

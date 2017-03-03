@@ -4,6 +4,10 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Class ResetPasswordRequest
+ * @package App\Http\Requests
+ */
 class ResetPasswordRequest extends FormRequest
 {
     /**

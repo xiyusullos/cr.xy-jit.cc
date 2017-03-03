@@ -1,0 +1,1041 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>教室预定管理系统 API</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/all.js"></script>
+
+
+          <script>
+        $(function() {
+            setupLanguages(["bash","javascript"]);
+        });
+      </script>
+      </head>
+
+  <body class="">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+        <img src="images/logo.png" />
+                    <div class="lang-selector">
+                                  <a href="#" data-language-name="bash">bash</a>
+                                  <a href="#" data-language-name="javascript">javascript</a>
+                            </div>
+                            <div class="search">
+              <input type="text" class="search" id="input-search" placeholder="Search">
+            </div>
+            <ul class="search-results"></ul>
+              <div id="toc">
+      </div>
+                    <ul class="toc-footer">
+                                  <li>由 <a href='http://github.com/xiyusullos'>xiyusullos</a> 拽写</li>
+                            </ul>
+            </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+          <!-- START_INFO -->
+<h1>教室预定管理系统</h1>
+<p><a href="http://cr.xy-jit.cc/docs/collection.json">Get <em>Postman</em> Collection</a></p>
+<!-- END_INFO -->
+<h1>01-users</h1>
+<p>用户</p>
+<!-- START_12e37982cc5398c7100e59625ebb5514 -->
+<h2>注册</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl "http://cr.xy-jit.cc/api/users" \
+-H "Accept: application/json" \
+    -d "name"="rem" \
+    -d "email"="claire.schumm@example.net" \
+    -d "password"="rem" \
+</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://cr.xy-jit.cc/api/users",
+    "method": "POST",
+    "data": {
+        "name": "rem",
+        "email": "claire.schumm@example.net",
+        "password": "rem"
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/users</code></p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td>email</td>
+<td>email</td>
+<td>required</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>required</td>
+</tr>
+</tbody>
+</table>
+<!-- END_12e37982cc5398c7100e59625ebb5514 -->
+<!-- START_21ff1203a9357ffbb000ef4dd551dfd3 -->
+<h2>登录</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl "http://cr.xy-jit.cc/api/users/login" \
+-H "Accept: application/json" \
+    -d "email"="tfunk@example.org" \
+    -d "password"="atque" \
+</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://cr.xy-jit.cc/api/users/login",
+    "method": "POST",
+    "data": {
+        "email": "tfunk@example.org",
+        "password": "atque"
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/users/login</code></p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>email</td>
+<td>email</td>
+<td>required</td>
+<td>Valid user email</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>required</td>
+</tr>
+</tbody>
+</table>
+<!-- END_21ff1203a9357ffbb000ef4dd551dfd3 -->
+<!-- START_5da4a01649c4efd773d0d8417009a943 -->
+<h2>查看个人信息</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl "http://cr.xy-jit.cc/api/users/{id}" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://cr.xy-jit.cc/api/users/{id}",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": {
+        "data": {
+            "type": "user",
+            "id": "1",
+            "attributes": {
+                "name": "xiyusullos",
+                "email": "i@xy-jit.cc",
+                "created_at": {
+                    "date": "2017-03-03 14:26:02.000000",
+                    "timezone_type": 3,
+                    "timezone": "Asia\/Shanghai"
+                },
+                "updated_at": {
+                    "date": "2017-03-03 14:59:49.000000",
+                    "timezone_type": 3,
+                    "timezone": "Asia\/Shanghai"
+                },
+                "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6XC9cL2xvY2FsaG9zdGFwaVwvdXNlcnNcLzEiLCJpYXQiOjE0ODg1MjgxOTEsImV4cCI6MTQ4ODUzMTc5MSwibmJmIjoxNDg4NTI4MTkxLCJqdGkiOiI2YjI3MTA2NGEyNDU1YmY3ODM5MGZkNGVhN2E4NTFjMiJ9.-_wPw8-pB9JV0sv5G6XemOhRuD_qADEbtFJIruhrCVk"
+            }
+        }
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/users/{id}</code></p>
+<p><code>HEAD api/users/{id}</code></p>
+<!-- END_5da4a01649c4efd773d0d8417009a943 -->
+<!-- START_9332edb67641ad6a0c477285396a59e6 -->
+<h2>修改个人信息</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl "http://cr.xy-jit.cc/api/users/{id}" \
+-H "Accept: application/json" \
+    -d "name"="sint" \
+    -d "username"="ukoch@example.com" \
+    -d "password"="sint" \
+</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://cr.xy-jit.cc/api/users/{id}",
+    "method": "PUT",
+    "data": {
+        "name": "sint",
+        "username": "ukoch@example.com",
+        "password": "sint"
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT api/users/{id}</code></p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>username</td>
+<td>email</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>optional</td>
+</tr>
+</tbody>
+</table>
+<!-- END_9332edb67641ad6a0c477285396a59e6 -->
+<!-- START_49674000f212bf6c4feec16c7373bc74 -->
+<h2>重置密码</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl "http://cr.xy-jit.cc/api/users/resetPassword" \
+-H "Accept: application/json" \
+    -d "email"="ut" \
+    -d "code"="ut" \
+    -d "password"="ut" \
+</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://cr.xy-jit.cc/api/users/resetPassword",
+    "method": "PUT",
+    "data": {
+        "email": "ut",
+        "code": "ut",
+        "password": "ut"
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT api/users/resetPassword</code></p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>required</td>
+<td>Valid user email</td>
+</tr>
+<tr>
+<td>code</td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>required</td>
+</tr>
+</tbody>
+</table>
+<!-- END_49674000f212bf6c4feec16c7373bc74 -->
+<h1>02-classrooms</h1>
+<!-- START_8b1bca47bbd5da25f1bc95bc352a88c7 -->
+<h2>教室列表</h2>
+<pre><code> 当前可用教室查看 /api/classrooms?search=is_free:1
+ 筛选可用教室（面积大小、教学楼、时间段）</code></pre>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl "http://cr.xy-jit.cc/api/classrooms" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://cr.xy-jit.cc/api/classrooms",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": {
+        "data": [
+            {
+                "type": "classrooms",
+                "id": "3",
+                "attributes": {
+                    "number": "1321",
+                    "name": "创新实验室",
+                    "location": "北区1号楼",
+                    "square": 60,
+                    "floor": 2,
+                    "is_free": 0,
+                    "building_name": "1号楼",
+                    "created_at": {
+                        "date": "2017-03-01 17:06:33.000000",
+                        "timezone_type": 3,
+                        "timezone": "Asia\/Shanghai"
+                    },
+                    "updated_at": {
+                        "date": "2017-03-01 21:38:35.000000",
+                        "timezone_type": 3,
+                        "timezone": "Asia\/Shanghai"
+                    }
+                }
+            },
+            {
+                "type": "classrooms",
+                "id": "10",
+                "attributes": {
+                    "number": "11",
+                    "name": "11",
+                    "location": "11",
+                    "square": 11,
+                    "floor": 1,
+                    "is_free": 0,
+                    "building_name": "11",
+                    "created_at": {
+                        "date": "2017-03-01 22:25:05.000000",
+                        "timezone_type": 3,
+                        "timezone": "Asia\/Shanghai"
+                    },
+                    "updated_at": {
+                        "date": "2017-03-01 22:25:05.000000",
+                        "timezone_type": 3,
+                        "timezone": "Asia\/Shanghai"
+                    }
+                }
+            }
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/classrooms</code></p>
+<p><code>HEAD api/classrooms</code></p>
+<!-- END_8b1bca47bbd5da25f1bc95bc352a88c7 -->
+<!-- START_1f7c481e614b753876089673d7775e6b -->
+<h2>api/classrooms/create</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl "http://cr.xy-jit.cc/api/classrooms/create" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://cr.xy-jit.cc/api/classrooms/create",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">null</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/classrooms/create</code></p>
+<p><code>HEAD api/classrooms/create</code></p>
+<!-- END_1f7c481e614b753876089673d7775e6b -->
+<!-- START_be2aae56bc66c5facf1c3a9048bfd03a -->
+<h2>Store a newly created resource in storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl "http://cr.xy-jit.cc/api/classrooms" \
+-H "Accept: application/json" \
+    -d "number"="ratione" \
+    -d "name"="ratione" \
+    -d "location"="ratione" \
+    -d "square"="ratione" \
+    -d "floor"="ratione" \
+    -d "is_free"="ratione" \
+    -d "building_name"="ratione" \
+</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://cr.xy-jit.cc/api/classrooms",
+    "method": "POST",
+    "data": {
+        "number": "ratione",
+        "name": "ratione",
+        "location": "ratione",
+        "square": "ratione",
+        "floor": "ratione",
+        "is_free": "ratione",
+        "building_name": "ratione"
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/classrooms</code></p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>number</td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td>location</td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td>square</td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td>floor</td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td>is_free</td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td>building_name</td>
+<td>string</td>
+<td>required</td>
+</tr>
+</tbody>
+</table>
+<!-- END_be2aae56bc66c5facf1c3a9048bfd03a -->
+<!-- START_2b3f3225708442e7f72b6362d327866b -->
+<h2>Display the specified resource.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl "http://cr.xy-jit.cc/api/classrooms/{classroom}" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://cr.xy-jit.cc/api/classrooms/{classroom}",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">null</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/classrooms/{classroom}</code></p>
+<p><code>HEAD api/classrooms/{classroom}</code></p>
+<!-- END_2b3f3225708442e7f72b6362d327866b -->
+<!-- START_e4f5b06ac903b59f49f4c19b6873ba6a -->
+<h2>Show the form for editing the specified resource.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl "http://cr.xy-jit.cc/api/classrooms/{classroom}/edit" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://cr.xy-jit.cc/api/classrooms/{classroom}/edit",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">null</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/classrooms/{classroom}/edit</code></p>
+<p><code>HEAD api/classrooms/{classroom}/edit</code></p>
+<!-- END_e4f5b06ac903b59f49f4c19b6873ba6a -->
+<!-- START_6f4c8439b6d56d80f77dab4edffef04d -->
+<h2>Update the specified resource in storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl "http://cr.xy-jit.cc/api/classrooms/{classroom}" \
+-H "Accept: application/json" \
+    -d "number"="ea" \
+    -d "name"="ea" \
+    -d "location"="ea" \
+    -d "square"="ea" \
+    -d "floor"="ea" \
+    -d "is_free"="ea" \
+    -d "building_name"="ea" \
+</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://cr.xy-jit.cc/api/classrooms/{classroom}",
+    "method": "PUT",
+    "data": {
+        "number": "ea",
+        "name": "ea",
+        "location": "ea",
+        "square": "ea",
+        "floor": "ea",
+        "is_free": "ea",
+        "building_name": "ea"
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT api/classrooms/{classroom}</code></p>
+<p><code>PATCH api/classrooms/{classroom}</code></p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>number</td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td>location</td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td>square</td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td>floor</td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td>is_free</td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td>building_name</td>
+<td>string</td>
+<td>required</td>
+</tr>
+</tbody>
+</table>
+<!-- END_6f4c8439b6d56d80f77dab4edffef04d -->
+<!-- START_9744da84ac8310e72416741d92e71cdf -->
+<h2>Remove the specified resource from storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl "http://cr.xy-jit.cc/api/classrooms/{classroom}" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://cr.xy-jit.cc/api/classrooms/{classroom}",
+    "method": "DELETE",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE api/classrooms/{classroom}</code></p>
+<!-- END_9744da84ac8310e72416741d92e71cdf -->
+<h1>03-reservations</h1>
+<p>教室租赁</p>
+<!-- START_f92d846631bdbfbb31051b90402d9652 -->
+<h2>Display a listing of the resource.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl "http://cr.xy-jit.cc/api/reservations" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://cr.xy-jit.cc/api/reservations",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": {
+        "data": [
+            {
+                "type": "reservations",
+                "id": "2",
+                "attributes": {
+                    "created_at": {
+                        "date": "2017-03-02 02:01:46.000000",
+                        "timezone_type": 3,
+                        "timezone": "Asia\/Shanghai"
+                    },
+                    "updated_at": {
+                        "date": "2017-03-02 02:01:46.000000",
+                        "timezone_type": 3,
+                        "timezone": "Asia\/Shanghai"
+                    }
+                }
+            },
+            {
+                "type": "reservations",
+                "id": "3",
+                "attributes": {
+                    "created_at": {
+                        "date": "2017-03-02 02:02:16.000000",
+                        "timezone_type": 3,
+                        "timezone": "Asia\/Shanghai"
+                    },
+                    "updated_at": {
+                        "date": "2017-03-02 02:02:16.000000",
+                        "timezone_type": 3,
+                        "timezone": "Asia\/Shanghai"
+                    }
+                }
+            },
+            {
+                "type": "reservations",
+                "id": "4",
+                "attributes": {
+                    "created_at": {
+                        "date": "2017-03-02 02:02:46.000000",
+                        "timezone_type": 3,
+                        "timezone": "Asia\/Shanghai"
+                    },
+                    "updated_at": {
+                        "date": "2017-03-02 02:02:46.000000",
+                        "timezone_type": 3,
+                        "timezone": "Asia\/Shanghai"
+                    }
+                }
+            }
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/reservations</code></p>
+<p><code>HEAD api/reservations</code></p>
+<!-- END_f92d846631bdbfbb31051b90402d9652 -->
+<!-- START_42c8e1b39127e86ce541ea1d8bb01c1d -->
+<h2>api/reservations/create</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl "http://cr.xy-jit.cc/api/reservations/create" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://cr.xy-jit.cc/api/reservations/create",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">null</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/reservations/create</code></p>
+<p><code>HEAD api/reservations/create</code></p>
+<!-- END_42c8e1b39127e86ce541ea1d8bb01c1d -->
+<!-- START_ab282f256617c21610a7231da4ebdcda -->
+<h2>Store a newly created resource in storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl "http://cr.xy-jit.cc/api/reservations" \
+-H "Accept: application/json" \
+    -d "user_id"="harum" \
+    -d "classroom_id"="harum" \
+    -d "begin_time"="harum" \
+    -d "end_time"="harum" \
+</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://cr.xy-jit.cc/api/reservations",
+    "method": "POST",
+    "data": {
+        "user_id": "harum",
+        "classroom_id": "harum",
+        "begin_time": "harum",
+        "end_time": "harum"
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/reservations</code></p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user_id</td>
+<td>string</td>
+<td>required</td>
+<td>Valid admin_user id</td>
+</tr>
+<tr>
+<td>classroom_id</td>
+<td>string</td>
+<td>required</td>
+<td>Valid classroom id</td>
+</tr>
+<tr>
+<td>begin_time</td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>string</td>
+<td>optional</td>
+</tr>
+</tbody>
+</table>
+<!-- END_ab282f256617c21610a7231da4ebdcda -->
+<!-- START_a5d58408e2a2cd7a1bde0ec571006f58 -->
+<h2>Display the specified resource.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl "http://cr.xy-jit.cc/api/reservations/{reservation}" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://cr.xy-jit.cc/api/reservations/{reservation}",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">null</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/reservations/{reservation}</code></p>
+<p><code>HEAD api/reservations/{reservation}</code></p>
+<!-- END_a5d58408e2a2cd7a1bde0ec571006f58 -->
+<!-- START_91ef4b2f57e582a331fe2dbdc0000b0d -->
+<h2>Show the form for editing the specified resource.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl "http://cr.xy-jit.cc/api/reservations/{reservation}/edit" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://cr.xy-jit.cc/api/reservations/{reservation}/edit",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">null</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/reservations/{reservation}/edit</code></p>
+<p><code>HEAD api/reservations/{reservation}/edit</code></p>
+<!-- END_91ef4b2f57e582a331fe2dbdc0000b0d -->
+<!-- START_697d47ccdc697240b5c11dc066f4ce3d -->
+<h2>Update the specified resource in storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl "http://cr.xy-jit.cc/api/reservations/{reservation}" \
+-H "Accept: application/json" \
+    -d "user_id"="tempora" \
+    -d "classroom_id"="tempora" \
+    -d "begin_time"="tempora" \
+    -d "end_time"="tempora" \
+</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://cr.xy-jit.cc/api/reservations/{reservation}",
+    "method": "PUT",
+    "data": {
+        "user_id": "tempora",
+        "classroom_id": "tempora",
+        "begin_time": "tempora",
+        "end_time": "tempora"
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT api/reservations/{reservation}</code></p>
+<p><code>PATCH api/reservations/{reservation}</code></p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user_id</td>
+<td>string</td>
+<td>required</td>
+<td>Valid admin_user id</td>
+</tr>
+<tr>
+<td>classroom_id</td>
+<td>string</td>
+<td>required</td>
+<td>Valid classroom id</td>
+</tr>
+<tr>
+<td>begin_time</td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>string</td>
+<td>optional</td>
+</tr>
+</tbody>
+</table>
+<!-- END_697d47ccdc697240b5c11dc066f4ce3d -->
+<!-- START_79a2e4117fcd567c8d0ac6712c4e7026 -->
+<h2>Remove the specified resource from storage.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl "http://cr.xy-jit.cc/api/reservations/{reservation}" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://cr.xy-jit.cc/api/reservations/{reservation}",
+    "method": "DELETE",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE api/reservations/{reservation}</code></p>
+<!-- END_79a2e4117fcd567c8d0ac6712c4e7026 -->
+      </div>
+      <div class="dark-box">
+                        <div class="lang-selector">
+                                    <a href="#" data-language-name="bash">bash</a>
+                                    <a href="#" data-language-name="javascript">javascript</a>
+                              </div>
+                </div>
+    </div>
+  </body>
+</html>

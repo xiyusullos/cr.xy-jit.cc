@@ -21,7 +21,7 @@ class ClassroomFilterCriteria implements CriteriaInterface
      */
     public function apply($model, RepositoryInterface $repository)
     {
-        // 筛选 面积大小 square=?,?
+        // 筛选 面积大小 &square=?,?
         $square = request()->get('square');
         $from = $to = null;
         try {
@@ -41,15 +41,15 @@ class ClassroomFilterCriteria implements CriteriaInterface
         }
 
 
-        // // 筛选 教学楼 search=building_name:?
-        // $teachingBuilding = request()->get('teachingBuilding');
-        // if (empty($teachingBuilding)) {
-        //    // Not filter
-        // } else {
-        //     $model = $model->where('building_name', 'like', '%'.$teachingBuilding.'%');
-        // }
+        // 筛选 教学楼 &teachingBuilding=?
+        $teachingBuilding = request()->get('teachingBuilding');
+        if (empty($teachingBuilding)) {
+           // Not filter
+        } else {
+            $model = $model->where('building_name', 'like', '%'.$teachingBuilding.'%');
+        }
 
-        // 筛选 时间段 freeTime=?,?
+        // 筛选 时间段 &freeTime=?,?
         $freeTime = request()->get('freeTime');
         $from = $to = null;
         try {
