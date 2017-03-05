@@ -19,6 +19,49 @@ toc_footers:
 
 <!-- END_INFO -->
 
+#00-codes
+<!-- START_a1e4da3db4d7411675fc2746c8f1e2d5 -->
+## 发送邮箱验证码
+
+> Example request:
+
+```bash
+curl "http://cr.xy-jit.cc/api/codes" \
+-H "Accept: application/json" \
+    -d "email"="tiana.mckenzie@example.com" \
+
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://cr.xy-jit.cc/api/codes",
+    "method": "POST",
+    "data": {
+        "email": "tiana.mckenzie@example.com"
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`POST api/codes`
+
+#### Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    email | email |  required  | 
+
+<!-- END_a1e4da3db4d7411675fc2746c8f1e2d5 -->
 #01-users
 用户
 <!-- START_12e37982cc5398c7100e59625ebb5514 -->
@@ -32,6 +75,7 @@ curl "http://cr.xy-jit.cc/api/users" \
     -d "name"="rem" \
     -d "email"="claire.schumm@example.net" \
     -d "password"="rem" \
+    -d "code"="rem" \
 
 ```
 
@@ -44,7 +88,8 @@ var settings = {
     "data": {
         "name": "rem",
         "email": "claire.schumm@example.net",
-        "password": "rem"
+        "password": "rem",
+        "code": "rem"
 },
     "headers": {
         "accept": "application/json"
@@ -67,6 +112,7 @@ Parameter | Type | Status | Description
     name | string |  required  | 
     email | email |  required  | 
     password | string |  required  | 
+    code | string |  required  | 
 
 <!-- END_12e37982cc5398c7100e59625ebb5514 -->
 <!-- START_21ff1203a9357ffbb000ef4dd551dfd3 -->
@@ -143,29 +189,7 @@ $.ajax(settings).done(function (response) {
 > Example response:
 
 ```json
-{
-    "data": {
-        "data": {
-            "type": "user",
-            "id": "1",
-            "attributes": {
-                "name": "xiyusullos",
-                "email": "i@xy-jit.cc",
-                "created_at": {
-                    "date": "2017-03-03 14:26:02.000000",
-                    "timezone_type": 3,
-                    "timezone": "Asia\/Shanghai"
-                },
-                "updated_at": {
-                    "date": "2017-03-03 14:59:49.000000",
-                    "timezone_type": 3,
-                    "timezone": "Asia\/Shanghai"
-                },
-                "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6XC9cL2xvY2FsaG9zdGFwaVwvdXNlcnNcLzEiLCJpYXQiOjE0ODg1MjgxOTEsImV4cCI6MTQ4ODUzMTc5MSwibmJmIjoxNDg4NTI4MTkxLCJqdGkiOiI2YjI3MTA2NGEyNDU1YmY3ODM5MGZkNGVhN2E4NTFjMiJ9.-_wPw8-pB9JV0sv5G6XemOhRuD_qADEbtFJIruhrCVk"
-            }
-        }
-    }
-}
+null
 ```
 
 ### HTTP Request
@@ -176,7 +200,7 @@ $.ajax(settings).done(function (response) {
 
 <!-- END_5da4a01649c4efd773d0d8417009a943 -->
 <!-- START_9332edb67641ad6a0c477285396a59e6 -->
-## 修改个人信息
+## 修改个人信息、密码
 
 > Example request:
 

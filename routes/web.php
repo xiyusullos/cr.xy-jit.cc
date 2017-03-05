@@ -22,7 +22,7 @@ Route::group([
 
     // $router->get('/', 'HomeController@index');
     // Route::get('/classrooms', 'ClassroomsController@index');
-    // Route::resource('/classrooms', ClassroomsController::class);
-    // Route::resource('/reservations', ReservationsController::class);
+    Route::resource('/classrooms', ClassroomsController::class);
+    Route::resource('/reservations', ReservationsController::class);
     // Route::resource('/reservations', ReservationsController::class);
 });

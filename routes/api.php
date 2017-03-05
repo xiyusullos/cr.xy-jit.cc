@@ -18,9 +18,9 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:api');
 
 Route::group(['prefix' => 'users'], function () {
-    // 注册
+    // 注册 without token
     Route::post('/', 'UsersController@store');
-    // 登录 ?
+    // 登录 with email and password
     Route::post('/login', 'UsersController@login');
     // 查看个人信息 with token
     Route::get('/{id}', 'UsersController@show');
@@ -31,9 +31,14 @@ Route::group(['prefix' => 'users'], function () {
     // Route::resource('/users', UsersController::class);
 });
 
+Route::group(['prefix' => 'codes'], function () {
+   Route::post('/', 'CodesController@store');
+});
+
 Route::group(['prefix' => 'classrooms'], function () {
     Route::get('/', 'ClassroomsController@index');
 });
 
 Route::resource('classrooms', 'ClassroomsController');
 Route::resource('reservations', 'ReservationsController');
+// Route::resource('codes', 'CodesController');

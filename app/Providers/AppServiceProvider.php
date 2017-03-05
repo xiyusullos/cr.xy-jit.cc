@@ -37,6 +37,7 @@ class AppServiceProvider extends ServiceProvider
         $developmentServiceProviders = [
             // For development
             \Barryvdh\Debugbar\ServiceProvider::class,
+            \Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
             \Sven\ArtisanView\ArtisanViewServiceProvider::class,
             \Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider::class,
             \Orangehill\Iseed\IseedServiceProvider::class,
