@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\ResetPasswordRequest;
+use App\Http\Requests\UserViewRequest;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -81,10 +82,7 @@ class UsersController extends Controller
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
 
-            $user = $this->repository->create([
-                'password' => bcrypt($request->input('password'))
-                ] + $request->all()
-            );
+            $user = $this->repository->create($request->all());
 
             $response = [
                 'message' => 'User created.',
@@ -117,7 +115,7 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(UserViewRequest $request, $id)
     {
         $user = $this->repository->find($id);
 
@@ -149,7 +147,7 @@ class UsersController extends Controller
 
 
     /**
-     * 修改个人信息
+     * 修改个人信息、密码
      *
      * @param  UserUpdateRequest $request
      * @param  string            $id
@@ -264,7 +262,7 @@ class UsersController extends Controller
      *
      * @return $this|\Illuminate\Http\JsonResponse
      */
-    public function resetPassword(ResetPasswordRequest $request, $id)
+    public function resetPassword(ResetPasswordRequest $request)
     {
         $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
 

@@ -2,12 +2,12 @@
 
 namespace App\Repositories\Eloquent;
 
-use App\Presenters\UserPresenter;
-use Prettus\Repository\Eloquent\BaseRepository;
-use Prettus\Repository\Criteria\RequestCriteria;
-use App\Repositories\Contracts\UserRepository;
 use App\Entities\User;
+use App\Presenters\UserPresenter;
+use App\Repositories\Contracts\UserRepository;
 use App\Validators\UserValidator;
+use Prettus\Repository\Criteria\RequestCriteria;
+use Prettus\Repository\Eloquent\BaseRepository;
 
 /**
  * Class UserRepositoryEloquent
@@ -26,10 +26,10 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
     }
 
     /**
-    * Specify Validator class name
-    *
-    * @return mixed
-    */
+     * Specify Validator class name
+     *
+     * @return mixed
+     */
     public function validator()
     {
 
@@ -55,25 +55,19 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
 
     protected function loginByEmail($email, $password)
     {
-        $token = \JWTAuth::attempt([
-            'email' => $email,
-            'password' => $password,
-        ]);
+        $token = \JWTAuth::attempt(['email' => $email, 'password' => $password,]);
         $user = \JWTAuth::toUser($token);
         $result = $this->parserResult($user);
 
         return $result;
     }
+
     public function putResetPassword()
     {
-        return $this->resetPasswordByEmail(
-            request()->input('email'),
-            request()->input('password', null),
-            0
-        );
+        return $this->resetPasswordByEmail(request()->input('email'), request()->input('password', null));
     }
 
-    protected function resetPasswordByEmail($email, $password, $code)
+    protected function resetPasswordByEmail($email, $password)
     {
         $user = $this->model->where('email', $email)->first();
         if (!empty($user->password)) {
@@ -82,5 +76,20 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
         $user->save();
 
         return $this->parserResult($user);
+    }
+
+    public function create(array $attributes)
+    {
+        $attributes['password'] = bcrypt($attributes['password']);
+
+        return parent::create($attributes);
+    }
+
+    public function update(array $attributes, $id)
+    {
+        if (isset($attributes['password'])) {
+            $attributes['password'] = bcrypt($attributes['password']);
+        }
+        return parent::update($attributes, $id);
     }
 }
