@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Exceptions\InvalidCredentialException;
 use Illuminate\Foundation\Http\FormRequest;
 
 class LoginRequest extends FormRequest
@@ -15,7 +16,7 @@ class LoginRequest extends FormRequest
     {
 
         $token = \JWTAuth::attempt(['email' => $this->request->get('email'),
-        'password' => $this->request->get('password'),]);
+            'password' => $this->request->get('password'),]);
         return (bool) $token;
     }
 
@@ -30,5 +31,10 @@ class LoginRequest extends FormRequest
             'email' => 'required|email|exists:users,email',
             'password' => 'required',
         ];
+    }
+
+    public function forbiddenResponse()
+    {
+        throw new InvalidCredentialException('账号或密码错误');
     }
 }

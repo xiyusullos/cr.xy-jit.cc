@@ -3,16 +3,7 @@
 namespace App\Exceptions;
 
 use Exception;
-use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Illuminate\Validation\ValidationException;
-use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
-use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
-use Symfony\Component\HttpKernel\Exception\NotAcceptableHttpException;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\HttpKernel\Exception\UnsupportedMediaTypeHttpException;
-use Tymon\JWTAuth\Exceptions\JWTException;
-use Tymon\JWTAuth\Exceptions\TokenExpiredException;
 
 class Handler extends ExceptionHandler
 {
@@ -53,12 +44,7 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
-        return parent::render($request, $e);
-
         $errMsg = $e->getMessage();
-        // $error = [
-        //     'detail' => $errMsg
-        // ];
 
         if ($e instanceof InvalidCredentialException) {
             return $this->transform(
@@ -67,14 +53,14 @@ class Handler extends ExceptionHandler
                 '认证失败',
                 $errMsg
             );
-        } elseif ($e instanceof UnsupportedMediaTypeHttpException) {
+        } elseif ($e instanceof UnsupportedMediaTypeException) {
             return $this->transform(
                 415,
                 'RQ1015',
                 'Content-Type格式错误',
                 $errMsg
             );
-        } elseif ($e instanceof NotAcceptableHttpException) {
+        } elseif ($e instanceof NotAcceptableException) {
             return $this->transform(
                 406,
                 'RQ1006',
@@ -109,14 +95,14 @@ class Handler extends ExceptionHandler
                 'token错误',
                 'token不正确'
             );
-        } elseif ($e instanceof NotFoundHttpException) {
+        } elseif ($e instanceof NotFoundException) {
             return $this->transform(
                 404,
                 'RQ1004',
                 '实体不存在',
                 $errMsg
             );
-        } elseif ($e instanceof ValidationException) {
+        } elseif ($e instanceof UnprocessableEntityException) {
             return $this->transform(
                 422,
                 'RQ1022',
@@ -130,7 +116,7 @@ class Handler extends ExceptionHandler
                 '路由错误',
                 '该路由不存在，检查请求方法和请求地址是否正确'
             );
-        } elseif ($e instanceof AccessDeniedHttpException) {
+        } elseif ($e instanceof ForbiddenException) {
             return $this->transform(
                 403,
                 'RQ1003',
