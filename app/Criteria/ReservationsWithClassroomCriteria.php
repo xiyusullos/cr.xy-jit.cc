@@ -21,7 +21,7 @@ class ReservationsWithClassroomCriteria implements CriteriaInterface
      */
     public function apply($model, RepositoryInterface $repository)
     {
-        $model->whereHas('classroom');
+        $model = $model->whereHas('classroom');
 
         return $model;
     }

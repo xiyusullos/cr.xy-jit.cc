@@ -2,25 +2,27 @@
 
 namespace App\Http\Requests;
 
+use App\Exceptions\JWTTokenException;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UserUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
-     *
      * @return bool
+     * @throws JWTTokenException
      */
     public function authorize()
     {
         try {
             $user = \JWTAuth::parseToken()->authenticate();
-            return $user->id == $this->id;
+            if ($user->id == $this->id) {
+                return true;
+            }
+            throw new JWTTokenException("token错误");
         } catch (\Exception $e) {
-            return false;
+            throw new JWTTokenException("token错误");
         }
-
-        return false;
     }
 
     /**
@@ -32,7 +34,7 @@ class UserUpdateRequest extends FormRequest
     {
         return [
             'name' => '',
-            'username' => 'email|unique:users,email,'.$this->user.',id',
+            'username' => 'email|unique:users,email,'.$this->id.',id',
             'password' => '',
         ];
     }

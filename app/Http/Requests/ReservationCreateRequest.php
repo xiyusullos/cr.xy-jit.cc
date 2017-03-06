@@ -2,27 +2,27 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Exceptions\JWTTokenException;
 
-class ReservationCreateRequest extends FormRequest
+class ReservationCreateRequest extends WithJWTTokenRequest
 {
     /**
      * Determine if the user is authorized to make this request.
-     *
      * @return bool
+     * @throws JWTTokenException
      */
     public function authorize()
     {
         try {
             $user = \JWTAuth::parseToken()->authenticate();
-            return $user->id == request()->input('user_id');
+            if ($user->id == $this->request->get('user_id')) {
+                return true;
+            }
+            throw new JWTTokenException("token错误");
         } catch (\Exception $e) {
-            return false;
+            throw new JWTTokenException("token错误");
         }
-
-        return false;
     }
-
     /**
      * Get the validation rules that apply to the request.
      *

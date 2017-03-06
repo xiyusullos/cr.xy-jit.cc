@@ -6,7 +6,7 @@ use App\Entities\Code;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserCreateRequest extends FormRequest
+class UserCreateRequest extends BaseRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,13 +25,10 @@ class UserCreateRequest extends FormRequest
                 $code->delete();
                 return true;
             }
-
-            return false;
+            throw new ForbiddenException('验证码失效');
         } catch (\Exception $e) {
-            return false;
+            throw new ForbiddenException('验证码错误或已被使用');
         }
-
-        return true;
     }
 
     /**

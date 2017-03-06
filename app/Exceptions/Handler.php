@@ -4,6 +4,9 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Validation\ValidationException;
+
+// use Illuminate\Validation\ValidationException;
 
 class Handler extends ExceptionHandler
 {
@@ -40,89 +43,31 @@ class Handler extends ExceptionHandler
      * @param  \Illuminate\Http\Request $request
      * @param  \Exception               $e
      *
-*@return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response
      */
     public function render($request, Exception $e)
     {
-        $errMsg = $e->getMessage();
-
-        if ($e instanceof InvalidCredentialException) {
-            return $this->transform(
-                401,
-                'AT1001',
-                '认证失败',
-                $errMsg
-            );
-        } elseif ($e instanceof UnsupportedMediaTypeException) {
-            return $this->transform(
-                415,
-                'RQ1015',
-                'Content-Type格式错误',
-                $errMsg
-            );
-        } elseif ($e instanceof NotAcceptableException) {
-            return $this->transform(
-                406,
-                'RQ1006',
-                'Accept格式错误',
-                $errMsg
-            );
-        } elseif ($e instanceof MethodNotAllowedHttpException) {
-            return $this->transform(
-                405,
-                'RQ1005',
-                'HTTP请求方法错误',
-                '不存在该请求方式，可通过OPTION请求方式查看允许的请求方法'
-            );
-        } elseif ($e instanceof TokenExpiredException) {
-            return $this->transform(
-                401,
-                'TK1001',
-                'token错误',
-                'token已过期'
-            );
-        } elseif ($e instanceof TokenNotProvidedException) {
-            return $this->transform(
-                400,
-                'TK1004',
-                'token错误',
-                '尚未提供token'
-            );
-        } elseif ($e instanceof JWTException) {
-            return $this->transform(
-                400,
-                'TK1000',
-                'token错误',
-                'token不正确'
-            );
-        } elseif ($e instanceof NotFoundException) {
-            return $this->transform(
-                404,
-                'RQ1004',
-                '实体不存在',
-                $errMsg
-            );
-        } elseif ($e instanceof UnprocessableEntityException) {
-            return $this->transform(
-                422,
-                'RQ1022',
-                '请求实体格式错误',
-                $errMsg
-            );
-        } elseif ($e instanceof NotFoundHttpException) {
-            return $this->transform(
-                404,
-                'RT1004',
-                '路由错误',
-                '该路由不存在，检查请求方法和请求地址是否正确'
-            );
-        } elseif ($e instanceof ForbiddenException) {
-            return $this->transform(
-                403,
-                'RQ1003',
-                '请求被拒绝',
-                $errMsg
-            );
+        // dd(get_class$e));
+        return parent::render($request, $e);
+        if ($request->wantsJson()) {
+            if ($e instanceof ValidationException) {
+                // Unprocessable Entity
+                return $this->transform(
+                    422,
+                    'RQ1022',
+                    '请求实体格式错误',
+                    $e->validator->getMessageBag()->toArray()
+                );
+            }
+            elseif ($e instanceof ForbiddenException) {
+                // Forbidden
+                return $this->transform(403, 'RQ1003', '请求被拒绝', $e->getMessage());
+            }
+            elseif ($e instanceof JWTTokenException) {
+                // JWT token is error
+                return $this->transform(403, 'RQ1003', '请求被拒绝',
+                    $e->getMessage());
+            }
         }
 
         return parent::render($request, $e);

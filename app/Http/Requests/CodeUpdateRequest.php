@@ -2,9 +2,7 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
-
-class CodeUpdateRequest extends FormRequest
+class CodeUpdateRequest extends BaseRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,8 +21,7 @@ class CodeUpdateRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
+        return [//
         ];
     }
 }

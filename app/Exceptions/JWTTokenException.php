@@ -4,6 +4,6 @@ namespace App\Exceptions;
 
 use Exception;
 
-class ForbiddenException extends \Exception
+class JWTTokenException extends \Exception
 {
 }

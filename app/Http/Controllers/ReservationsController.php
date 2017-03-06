@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Criteria\ReservationsWithClassroomCriteria;
 use App\Entities\Classroom;
 use App\Entities\Reservation;
+use App\Http\Requests\ReservationDeleteRequest;
 use App\Models\AdminUser;
 use Encore\Admin\Layout\Column;
 use Encore\Admin\Layout\Content;
@@ -314,7 +315,7 @@ class ReservationsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(ReservationDeleteRequest $request, $id)
     {
         $deleted = $this->repository->delete($id);
 

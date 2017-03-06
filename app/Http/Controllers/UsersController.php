@@ -264,7 +264,7 @@ class UsersController extends Controller
      */
     public function resetPassword(ResetPasswordRequest $request)
     {
-        $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
+        // $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
 
         $user = $this->repository->putResetPassword();
 

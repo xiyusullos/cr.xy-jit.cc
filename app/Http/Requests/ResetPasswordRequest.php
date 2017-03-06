@@ -3,19 +3,20 @@
 namespace App\Http\Requests;
 
 use App\Entities\Code;
+use App\Exceptions\ForbiddenException;
 use Carbon\Carbon;
-use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * Class ResetPasswordRequest
  * @package App\Http\Requests
  */
-class ResetPasswordRequest extends FormRequest
+class ResetPasswordRequest extends BaseRequest
 {
+
     /**
-     * Determine if the user is authorized to make this request.
-     *
+     * Validate the code
      * @return bool
+     * @throws ForbiddenException
      */
     public function authorize()
     {
@@ -27,16 +28,13 @@ class ResetPasswordRequest extends FormRequest
         try {
             if (Carbon::now()->diffInSeconds($code->created_at) <=
                 $code->expiration) {
-                // $code->delete();
+                $code->delete();
                 return true;
             }
-
-            return false;
+            throw new ForbiddenException('验证码失效');
         } catch (\Exception $e) {
-            return false;
+            throw new ForbiddenException('验证码错误或已被使用');
         }
-
-        return false;
     }
 
     /**
@@ -46,9 +44,8 @@ class ResetPasswordRequest extends FormRequest
      */
     public function rules()
     {
-
         return [
-            'email'     => 'required|exists:users,email',
+            'email'     => 'required|email|exists:users,email',
             'code'      => 'required',
             'password' => 'required',
         ];
