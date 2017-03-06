@@ -13,7 +13,10 @@ class LoginRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+
+        $token = \JWTAuth::attempt(['email' => $this->request->get('email'),
+        'password' => $this->request->get('password'),]);
+        return (bool) $token;
     }
 
     /**
