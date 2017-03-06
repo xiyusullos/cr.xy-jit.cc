@@ -37,7 +37,11 @@ class ReservationTransformer extends TransformerAbstract
 
     public function includeClassroom(Reservation $model)
     {
-        return $this->item($model->classroom, new ClassroomTransformer,
+        $classtoom = $model->classroom;
+        if (is_null($classtoom)) {
+            return null;
+        }
+        return $this->item($classtoom, new ClassroomTransformer,
             'classroom');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Criteria\ReservationsWithClassroomCriteria;
 use App\Entities\Classroom;
 use App\Entities\Reservation;
 use App\Models\AdminUser;
@@ -140,6 +141,8 @@ class ReservationsController extends Controller
     public function index()
     {
         $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
+        // pick out where the classroom is deleted
+        $this->repository->pushCriteria(new ReservationsWithClassroomCriteria());
         $reservations = $this->repository->paginate();
 
         if (request()->wantsJson()) {
