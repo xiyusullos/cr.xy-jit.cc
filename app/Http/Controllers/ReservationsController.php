@@ -140,7 +140,7 @@ class ReservationsController extends Controller
     public function index()
     {
         $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
-        $reservations = $this->repository->all();
+        $reservations = $this->repository->paginate();
 
         if (request()->wantsJson()) {
 
