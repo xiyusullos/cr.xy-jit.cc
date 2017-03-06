@@ -3,7 +3,7 @@
 namespace App\Transformers;
 
 use League\Fractal\TransformerAbstract;
-use App\Entities\Reservation;
+use App\Models\Reservation;
 
 /**
  * Class ReservationTransformer
@@ -23,10 +23,21 @@ class ReservationTransformer extends TransformerAbstract
         return [
             'id'         => (int) $model->id,
 
-            /* place your other model properties here */
+            'user_id' =>  $model->user_id,
+            'classroom_id' =>  $model->classroom_id,
+            'begin_time' =>  $model->begin_time,
+            'end_time' =>  $model->end_time,
 
             'created_at' => $model->created_at,
             'updated_at' => $model->updated_at
         ];
+    }
+
+    protected $defaultIncludes = ['classroom'];
+
+    public function includeClassroom(Reservation $model)
+    {
+        return $this->item($model->classroom, new ClassroomTransformer,
+            'classroom');
     }
 }

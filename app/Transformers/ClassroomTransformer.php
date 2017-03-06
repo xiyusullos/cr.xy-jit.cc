@@ -3,7 +3,7 @@
 namespace App\Transformers;
 
 use League\Fractal\TransformerAbstract;
-use App\Entities\Classroom;
+use App\Models\Classroom;
 
 /**
  * Class ClassroomTransformer

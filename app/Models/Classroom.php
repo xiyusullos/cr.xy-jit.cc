@@ -25,5 +25,9 @@ class Classroom extends Model
 
     protected $guarded = [];
 
-        
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class, 'classroom_id', 'id');
+    }
+
 }

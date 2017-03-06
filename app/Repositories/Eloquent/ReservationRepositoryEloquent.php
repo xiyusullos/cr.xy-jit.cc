@@ -15,6 +15,10 @@ use App\Validators\ReservationValidator;
  */
 class ReservationRepositoryEloquent extends BaseRepository implements ReservationRepository
 {
+    protected $fieldSearchable = [
+        'user_id',
+    ];
+
     /**
      * Specify Model class name
      *
@@ -47,15 +51,15 @@ class ReservationRepositoryEloquent extends BaseRepository implements Reservatio
         $this->setPresenter(ReservationPresenter::class);
     }
 
-    public function create(array $attributes)
-    {
-        $reservation = Reservation::where('user_id', $attributes['user_id'])
-            ->where('classroom_id', $attributes['classroom_id'])
-            ->first();
-        if (is_null($reservation)) {
-
-            return parent::create($attributes);
-        }
-        return $reservation;
-    }
+    // public function create(array $attributes)
+    // {
+    //     $reservation = Reservation::where('user_id', $attributes['user_id'])
+    //         ->where('classroom_id', $attributes['classroom_id'])
+    //         ->first();
+    //     if (is_null($reservation)) {
+    //
+    //         return parent::create($attributes);
+    //     }
+    //     return $reservation;
+    // }
 }

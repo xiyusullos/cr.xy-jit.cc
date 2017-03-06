@@ -145,7 +145,11 @@ class ClassroomsController extends Controller
             $content->body($this->grid());
         });
 
+        return response()->json([
+            'data' => $classrooms,
+        ]);
         return view('classrooms.index', compact('classrooms'));
+
     }
 
     public function create()

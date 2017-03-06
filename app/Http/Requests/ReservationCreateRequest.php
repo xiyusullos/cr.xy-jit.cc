@@ -34,7 +34,7 @@ class ReservationCreateRequest extends FormRequest
             'user_id' => 'required|exists:admin_users,id',
             'classroom_id' => 'required|exists:classrooms,id',
             'begin_time' => 'required',
-            'end_time' => '',
+            'end_time' => 'required',
         ];
     }
 }

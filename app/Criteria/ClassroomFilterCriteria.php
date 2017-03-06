@@ -29,7 +29,6 @@ class ClassroomFilterCriteria implements CriteriaInterface
         } catch (\ErrorException $e) {
            // Undefined offset
         }
-
         if (empty($from) && empty($to)) {
             // Not filter
         } elseif (empty($from)) {
@@ -57,15 +56,29 @@ class ClassroomFilterCriteria implements CriteriaInterface
         } catch (\ErrorException $e) {
             // Undefined offset
         }
-
         if (empty($from) && empty($to)) {
             // Not filter
         } elseif (empty($from)) {
-            // $model = $model->whereHas('square', '<=', $to);
+            $model = $model->whereDoesntHave('reservations')
+                ->orWhereHas('reservations', function ($q) use ($from) {
+                    $q->where('end_time', '<', $from);
+                })
+            ;
         } elseif (empty($to)) {
-            // $model = $model->whereHas('square', '>=', $from);
+            $model = $model->whereDoesntHave('reservations')
+                ->orWhereHas('reservations', function ($q) use ($to) {
+                    $q->where('begin_time', '>', $to);
+                })
+            ;
         } else {
-            // $model = $model->whereHas('square', [$from, $to]);
+            $model = $model
+                ->whereDoesntHave('reservations')
+                ->orWhereHas('reservations', function ($q) use ($from, $to) {
+                    $q->where('end_time', '<=', $from)
+                        ->orWhere('begin_time', '>=', $to)
+                    ;
+                })
+            ;
         }
 
         return $model;
