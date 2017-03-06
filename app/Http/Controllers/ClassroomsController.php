@@ -128,7 +128,7 @@ class ClassroomsController extends Controller
     {
         $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
         $this->repository->pushCriteria(ClassroomFilterCriteria::class);
-        $classrooms = $this->repository->all();
+        $classrooms = $this->repository->paginate();
 
         if (request()->wantsJson()) {
 
