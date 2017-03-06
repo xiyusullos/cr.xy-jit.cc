@@ -10,5 +10,5 @@
     <h3 style="margin: 22px 0 0; font-size: 15px; color: #ff6700">您的验证码是：<span style="border-bottom: 1px dashed rgb(204, 204, 204); z-index: 1; position: static;" t="7" onclick="return false;" data="{{$verifyCode}}" isout="1">{{$verifyCode}}</span></h3>
     <p>感谢您对“教室预订APP”的支持，祝您使用愉快！</p>
     <p style="text-align: right; margin-top: 50px;">教室预订APP官方团队</p>
-    <p style="text-align: right;"><a style="color: #ff6700" href="https://xy-jit.cc" target="_blank">https://blog.xy-jit.cc</a></p>
+    <p style="text-align: right;"><a style="color: #ff6700" href="https://xy-jit.cc" target="_blank">http://blog.xy-jit.cc</a></p>
 </div>

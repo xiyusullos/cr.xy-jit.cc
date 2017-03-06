@@ -13,7 +13,14 @@ class ReservationCreateRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        try {
+            $user = \JWTAuth::parseToken()->authenticate();
+            return $user->id == request()->input('user_id');
+        } catch (\Exception $e) {
+            return false;
+        }
+
+        return false;
     }
 
     /**
