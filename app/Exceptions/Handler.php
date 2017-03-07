@@ -47,8 +47,7 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
-        // dd(get_class$e));
-        return parent::render($request, $e);
+        // return parent::render($request, $e);
         if ($request->wantsJson()) {
             if ($e instanceof ValidationException) {
                 // Unprocessable Entity

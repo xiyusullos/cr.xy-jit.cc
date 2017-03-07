@@ -47,7 +47,7 @@ Route::group(['prefix' => 'reservations'], function () {
     // 租赁教室
     Route::post('/', 'ReservationsController@store');
     // 归还教室
-    Route::delete('/{id}', 'ReservationsController@delete');
+    Route::delete('/{id}', 'ReservationsController@destroy');
 });
 
 // Route::resource('codes', 'CodesController');
