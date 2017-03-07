@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Entities\Reservation;
 use App\Exceptions\JWTTokenException;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -16,7 +17,8 @@ class ReservationDeleteRequest extends BaseRequest
     {
         try {
             $user = \JWTAuth::parseToken()->authenticate();
-            if ($user->id == $this->id) {
+            $reservation = Reservation::find($this->id);
+            if ($user->id == $reservation->user_id) {
                 return true;
             }
             throw new JWTTokenException("token错误");
