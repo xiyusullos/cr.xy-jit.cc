@@ -23,10 +23,9 @@ class Reservation extends Model
 
     protected $guarded = [];
 
-    public function admin_user()
+    public function user()
     {
-        // return $this->hasOne(AdminUser::class, 'id', 'user_id');
-        return $this->belongsTo(AdminUser::class, 'user_id', 'id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     public function classroom()

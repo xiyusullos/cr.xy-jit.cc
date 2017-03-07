@@ -24,14 +24,4 @@ class AdminUser extends Model
 
     protected $guarded = [];
 
-    public function reservations()
-    {
-        return $this->hasMany(Classroom::class, 'id', 'classroom_id');
-    }
-
-    public function profile()
-    {
-        return $this->hasOne(Profile::class, 'user_id', 'id');
-    }
-
 }
