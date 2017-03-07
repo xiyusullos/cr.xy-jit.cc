@@ -866,16 +866,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v3.0.4",
+            "version": "v3.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "0bf561dfe75ba80441c22adecc0529056671a7d2"
+                "reference": "2b9e2f71b722f7c53918ab0c25f7646c2013f17d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/nikic/PHP-Parser/0bf561dfe75ba80441c22adecc0529056671a7d2.zip",
-                "reference": "0bf561dfe75ba80441c22adecc0529056671a7d2",
+                "url": "https://files.phpcomposer.com/files/nikic/PHP-Parser/2b9e2f71b722f7c53918ab0c25f7646c2013f17d.zip",
+                "reference": "2b9e2f71b722f7c53918ab0c25f7646c2013f17d",
                 "shasum": ""
             },
             "require": {
@@ -913,20 +913,20 @@
                 "parser",
                 "php"
             ],
-            "time": "2017-02-10T20:20:03+00:00"
+            "time": "2017-03-05T18:23:57+00:00"
         },
         {
             "name": "paragonie/random_compat",
-            "version": "v2.0.4",
+            "version": "v2.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "a9b97968bcde1c4de2a5ec6cbd06a0f6c919b46e"
+                "reference": "6968531206671f94377b01dc7888d5d1b858a01b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/paragonie/random_compat/a9b97968bcde1c4de2a5ec6cbd06a0f6c919b46e.zip",
-                "reference": "a9b97968bcde1c4de2a5ec6cbd06a0f6c919b46e",
+                "url": "https://files.phpcomposer.com/files/paragonie/random_compat/6968531206671f94377b01dc7888d5d1b858a01b.zip",
+                "reference": "6968531206671f94377b01dc7888d5d1b858a01b",
                 "shasum": ""
             },
             "require": {
@@ -961,7 +961,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2016-11-07T23:38:38+00:00"
+            "time": "2017-03-03T20:43:42+00:00"
         },
         {
             "name": "phpseclib/phpseclib",
@@ -1063,16 +1063,16 @@
         },
         {
             "name": "prettus/l5-repository",
-            "version": "2.6.6",
+            "version": "2.6.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/andersao/l5-repository.git",
-                "reference": "05945e652bfdacd456128d69bcae91701ccc9e32"
+                "reference": "ae9e9eb5f824ed7c799f1df43378b8b7bc65119a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/andersao/l5-repository/05945e652bfdacd456128d69bcae91701ccc9e32.zip",
-                "reference": "05945e652bfdacd456128d69bcae91701ccc9e32",
+                "url": "https://files.phpcomposer.com/files/andersao/l5-repository/ae9e9eb5f824ed7c799f1df43378b8b7bc65119a.zip",
+                "reference": "ae9e9eb5f824ed7c799f1df43378b8b7bc65119a",
                 "shasum": ""
             },
             "require": {
@@ -1119,7 +1119,7 @@
                 "model",
                 "repository"
             ],
-            "time": "2016-06-27T10:43:22+00:00"
+            "time": "2017-03-05T11:23:49+00:00"
         },
         {
             "name": "prettus/laravel-validation",
@@ -1210,16 +1210,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.8.1",
+            "version": "v0.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "701e8a1cc426ee170f1296f5d9f6b8a26ad25c4a"
+                "reference": "97113db4107a4126bef933b60fea6dbc9f615d41"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/bobthecow/psysh/701e8a1cc426ee170f1296f5d9f6b8a26ad25c4a.zip",
-                "reference": "701e8a1cc426ee170f1296f5d9f6b8a26ad25c4a",
+                "url": "https://files.phpcomposer.com/files/bobthecow/psysh/97113db4107a4126bef933b60fea6dbc9f615d41.zip",
+                "reference": "97113db4107a4126bef933b60fea6dbc9f615d41",
                 "shasum": ""
             },
             "require": {
@@ -1279,7 +1279,7 @@
                 "interactive",
                 "shell"
             ],
-            "time": "2017-01-15T17:54:13+00:00"
+            "time": "2017-03-01T00:13:29+00:00"
         },
         {
             "name": "ramsey/uuid",
@@ -2368,16 +2368,16 @@
         },
         {
             "name": "barryvdh/laravel-ide-helper",
-            "version": "v2.3.0",
+            "version": "v2.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-ide-helper.git",
-                "reference": "555d3e37009bdb78f5d8bcea6eb8a816529a5cfa"
+                "reference": "e82de98cef0d6597b1b686be0b5813a3a4bb53c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/barryvdh/laravel-ide-helper/555d3e37009bdb78f5d8bcea6eb8a816529a5cfa.zip",
-                "reference": "555d3e37009bdb78f5d8bcea6eb8a816529a5cfa",
+                "url": "https://files.phpcomposer.com/files/barryvdh/laravel-ide-helper/e82de98cef0d6597b1b686be0b5813a3a4bb53c5.zip",
+                "reference": "e82de98cef0d6597b1b686be0b5813a3a4bb53c5",
                 "shasum": ""
             },
             "require": {
@@ -2400,7 +2400,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.2-dev"
+                    "dev-master": "2.3-dev"
                 }
             },
             "autoload": {
@@ -2430,7 +2430,7 @@
                 "phpstorm",
                 "sublime"
             ],
-            "time": "2017-02-13T19:20:12+00:00"
+            "time": "2017-02-22T12:27:33+00:00"
         },
         {
             "name": "barryvdh/reflection-docblock",
@@ -2514,16 +2514,16 @@
         },
         {
             "name": "doctrine/annotations",
-            "version": "v1.3.1",
+            "version": "v1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/annotations.git",
-                "reference": "bd4461328621bde0ae6b1b2675fbc6aca4ceb558"
+                "reference": "54cacc9b81758b14e3ce750f205a393d52339e97"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/doctrine/annotations/bd4461328621bde0ae6b1b2675fbc6aca4ceb558.zip",
-                "reference": "bd4461328621bde0ae6b1b2675fbc6aca4ceb558",
+                "url": "https://files.phpcomposer.com/files/doctrine/annotations/54cacc9b81758b14e3ce750f205a393d52339e97.zip",
+                "reference": "54cacc9b81758b14e3ce750f205a393d52339e97",
                 "shasum": ""
             },
             "require": {
@@ -2532,7 +2532,7 @@
             },
             "require-dev": {
                 "doctrine/cache": "1.*",
-                "phpunit/phpunit": "^5.6.1"
+                "phpunit/phpunit": "^5.7"
             },
             "type": "library",
             "extra": {
@@ -2578,7 +2578,7 @@
                 "docblock",
                 "parser"
             ],
-            "time": "2016-12-30T15:59:45+00:00"
+            "time": "2017-02-24T16:22:25+00:00"
         },
         {
             "name": "doctrine/cache",
@@ -3106,16 +3106,16 @@
         },
         {
             "name": "ignasbernotas/laravel-model-generator",
-            "version": "1.1.4",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ignasbernotas/laravel-model-generator.git",
-                "reference": "343ad81e5ec64b224aff01e7054e98faf98f1c61"
+                "reference": "9b09663b41fb6535090bf70fc7a6fec41765f022"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/ignasbernotas/laravel-model-generator/343ad81e5ec64b224aff01e7054e98faf98f1c61.zip",
-                "reference": "343ad81e5ec64b224aff01e7054e98faf98f1c61",
+                "url": "https://files.phpcomposer.com/files/ignasbernotas/laravel-model-generator/9b09663b41fb6535090bf70fc7a6fec41765f022.zip",
+                "reference": "9b09663b41fb6535090bf70fc7a6fec41765f022",
                 "shasum": ""
             },
             "require": {
@@ -3145,7 +3145,7 @@
                 "model",
                 "schema"
             ],
-            "time": "2016-05-24T16:57:40+00:00"
+            "time": "2017-03-06T21:44:46+00:00"
         },
         {
             "name": "maximebf/debugbar",
@@ -3288,16 +3288,16 @@
         },
         {
             "name": "mockery/mockery",
-            "version": "0.9.8",
+            "version": "0.9.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/padraic/mockery.git",
-                "reference": "1e5e2ffdc4d71d7358ed58a6fdd30a4a0c506855"
+                "reference": "6fdb61243844dc924071d3404bb23994ea0b6856"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/padraic/mockery/1e5e2ffdc4d71d7358ed58a6fdd30a4a0c506855.zip",
-                "reference": "1e5e2ffdc4d71d7358ed58a6fdd30a4a0c506855",
+                "url": "https://files.phpcomposer.com/files/padraic/mockery/6fdb61243844dc924071d3404bb23994ea0b6856.zip",
+                "reference": "6fdb61243844dc924071d3404bb23994ea0b6856",
                 "shasum": ""
             },
             "require": {
@@ -3349,7 +3349,7 @@
                 "test double",
                 "testing"
             ],
-            "time": "2017-02-09T13:29:38+00:00"
+            "time": "2017-02-28T12:52:32+00:00"
         },
         {
             "name": "mpociot/documentarian",
@@ -3825,27 +3825,27 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "v1.6.2",
+            "version": "v1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "6c52c2722f8460122f96f86346600e1077ce22cb"
+                "reference": "93d39f1f7f9326d746203c7c056f300f7f126073"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/phpspec/prophecy/6c52c2722f8460122f96f86346600e1077ce22cb.zip",
-                "reference": "6c52c2722f8460122f96f86346600e1077ce22cb",
+                "url": "https://files.phpcomposer.com/files/phpspec/prophecy/93d39f1f7f9326d746203c7c056f300f7f126073.zip",
+                "reference": "93d39f1f7f9326d746203c7c056f300f7f126073",
                 "shasum": ""
             },
             "require": {
                 "doctrine/instantiator": "^1.0.2",
                 "php": "^5.3|^7.0",
                 "phpdocumentor/reflection-docblock": "^2.0|^3.0.2",
-                "sebastian/comparator": "^1.1",
-                "sebastian/recursion-context": "^1.0|^2.0"
+                "sebastian/comparator": "^1.1|^2.0",
+                "sebastian/recursion-context": "^1.0|^2.0|^3.0"
             },
             "require-dev": {
-                "phpspec/phpspec": "^2.0",
+                "phpspec/phpspec": "^2.5|^3.2",
                 "phpunit/phpunit": "^4.8 || ^5.6.5"
             },
             "type": "library",
@@ -3884,39 +3884,39 @@
                 "spy",
                 "stub"
             ],
-            "time": "2016-11-21T14:58:47+00:00"
+            "time": "2017-03-02T20:05:34+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "4.0.5",
+            "version": "4.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "c19cfc7cbb0e9338d8c469c7eedecc2a428b0971"
+                "reference": "09e2277d14ea467e5a984010f501343ef29ffc69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/sebastianbergmann/php-code-coverage/c19cfc7cbb0e9338d8c469c7eedecc2a428b0971.zip",
-                "reference": "c19cfc7cbb0e9338d8c469c7eedecc2a428b0971",
+                "url": "https://files.phpcomposer.com/files/sebastianbergmann/php-code-coverage/09e2277d14ea467e5a984010f501343ef29ffc69.zip",
+                "reference": "09e2277d14ea467e5a984010f501343ef29ffc69",
                 "shasum": ""
             },
             "require": {
+                "ext-dom": "*",
+                "ext-xmlwriter": "*",
                 "php": "^5.6 || ^7.0",
-                "phpunit/php-file-iterator": "~1.3",
-                "phpunit/php-text-template": "~1.2",
-                "phpunit/php-token-stream": "^1.4.2",
-                "sebastian/code-unit-reverse-lookup": "~1.0",
+                "phpunit/php-file-iterator": "^1.3",
+                "phpunit/php-text-template": "^1.2",
+                "phpunit/php-token-stream": "^1.4.2 || ^2.0",
+                "sebastian/code-unit-reverse-lookup": "^1.0",
                 "sebastian/environment": "^1.3.2 || ^2.0",
-                "sebastian/version": "~1.0|~2.0"
+                "sebastian/version": "^1.0 || ^2.0"
             },
             "require-dev": {
-                "ext-xdebug": ">=2.1.4",
-                "phpunit/phpunit": "^5.4"
+                "ext-xdebug": "^2.1.4",
+                "phpunit/phpunit": "^5.7"
             },
             "suggest": {
-                "ext-dom": "*",
-                "ext-xdebug": ">=2.4.0",
-                "ext-xmlwriter": "*"
+                "ext-xdebug": "^2.5.1"
             },
             "type": "library",
             "extra": {
@@ -3947,7 +3947,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-01-20T15:06:43+00:00"
+            "time": "2017-03-01T09:12:17+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -4039,25 +4039,30 @@
         },
         {
             "name": "phpunit/php-timer",
-            "version": "1.0.8",
+            "version": "1.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-timer.git",
-                "reference": "38e9124049cf1a164f1e4537caf19c99bf1eb260"
+                "reference": "3dcf38ca72b158baf0bc245e9184d3fdffa9c46f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/sebastianbergmann/php-timer/38e9124049cf1a164f1e4537caf19c99bf1eb260.zip",
-                "reference": "38e9124049cf1a164f1e4537caf19c99bf1eb260",
+                "url": "https://files.phpcomposer.com/files/sebastianbergmann/php-timer/3dcf38ca72b158baf0bc245e9184d3fdffa9c46f.zip",
+                "reference": "3dcf38ca72b158baf0bc245e9184d3fdffa9c46f",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
+                "php": "^5.3.3 || ^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4|~5"
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
             "autoload": {
                 "classmap": [
                     "src/"
@@ -4079,20 +4084,20 @@
             "keywords": [
                 "timer"
             ],
-            "time": "2016-05-12T18:03:57+00:00"
+            "time": "2017-02-26T11:10:40+00:00"
         },
         {
             "name": "phpunit/php-token-stream",
-            "version": "1.4.9",
+            "version": "1.4.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-token-stream.git",
-                "reference": "3b402f65a4cc90abf6e1104e388b896ce209631b"
+                "reference": "e03f8f67534427a787e21a385a67ec3ca6978ea7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/sebastianbergmann/php-token-stream/3b402f65a4cc90abf6e1104e388b896ce209631b.zip",
-                "reference": "3b402f65a4cc90abf6e1104e388b896ce209631b",
+                "url": "https://files.phpcomposer.com/files/sebastianbergmann/php-token-stream/e03f8f67534427a787e21a385a67ec3ca6978ea7.zip",
+                "reference": "e03f8f67534427a787e21a385a67ec3ca6978ea7",
                 "shasum": ""
             },
             "require": {
@@ -4128,20 +4133,20 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2016-11-15T14:06:22+00:00"
+            "time": "2017-02-27T10:12:30+00:00"
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.7.14",
+            "version": "5.7.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "4906b8faf23e42612182fd212eb6f4c0f2954b57"
+                "reference": "b99112aecc01f62acf3d81a3f59646700a1849e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/sebastianbergmann/phpunit/4906b8faf23e42612182fd212eb6f4c0f2954b57.zip",
-                "reference": "4906b8faf23e42612182fd212eb6f4c0f2954b57",
+                "url": "https://files.phpcomposer.com/files/sebastianbergmann/phpunit/b99112aecc01f62acf3d81a3f59646700a1849e5.zip",
+                "reference": "b99112aecc01f62acf3d81a3f59646700a1849e5",
                 "shasum": ""
             },
             "require": {
@@ -4210,7 +4215,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-02-19T07:22:16+00:00"
+            "time": "2017-03-02T15:22:43+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -4322,23 +4327,23 @@
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/code-unit-reverse-lookup.git",
-                "reference": "c36f5e7cfce482fde5bf8d10d41a53591e0198fe"
+                "reference": "4419fcdb5eabb9caa61a27c7a1db532a6b55dd18"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/sebastianbergmann/code-unit-reverse-lookup/c36f5e7cfce482fde5bf8d10d41a53591e0198fe.zip",
-                "reference": "c36f5e7cfce482fde5bf8d10d41a53591e0198fe",
+                "url": "https://files.phpcomposer.com/files/sebastianbergmann/code-unit-reverse-lookup/4419fcdb5eabb9caa61a27c7a1db532a6b55dd18.zip",
+                "reference": "4419fcdb5eabb9caa61a27c7a1db532a6b55dd18",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.6"
+                "php": "^5.6 || ^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~5"
+                "phpunit/phpunit": "^5.7 || ^6.0"
             },
             "type": "library",
             "extra": {
@@ -4363,7 +4368,7 @@
             ],
             "description": "Looks up which function or method a line of code belongs to",
             "homepage": "https://github.com/sebastianbergmann/code-unit-reverse-lookup/",
-            "time": "2016-02-13T06:45:14+00:00"
+            "time": "2017-03-04T06:30:41+00:00"
         },
         {
             "name": "sebastian/comparator",
@@ -5257,16 +5262,16 @@
         },
         {
             "name": "xethron/laravel-4-generators",
-            "version": "3.1.0",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Xethron/Laravel-4-Generators.git",
-                "reference": "56a88b27abfbf45ae48517aace6e099b19904d88"
+                "reference": "526f0a07d8ae44e365a20b1bf64c9956acd2a859"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/Xethron/Laravel-4-Generators/56a88b27abfbf45ae48517aace6e099b19904d88.zip",
-                "reference": "56a88b27abfbf45ae48517aace6e099b19904d88",
+                "url": "https://files.phpcomposer.com/files/Xethron/Laravel-4-Generators/526f0a07d8ae44e365a20b1bf64c9956acd2a859.zip",
+                "reference": "526f0a07d8ae44e365a20b1bf64c9956acd2a859",
                 "shasum": ""
             },
             "require": {
@@ -5299,7 +5304,7 @@
                 }
             ],
             "description": "Rapidly generate resources, migrations, models, and much more.",
-            "time": "2017-02-15T20:41:36+00:00"
+            "time": "2017-02-23T11:20:49+00:00"
         },
         {
             "name": "xethron/migrations-generator",

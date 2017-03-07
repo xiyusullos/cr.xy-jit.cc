@@ -6,7 +6,7 @@ use App\Criteria\ReservationsWithClassroomCriteria;
 use App\Entities\Classroom;
 use App\Entities\Reservation;
 use App\Http\Requests\ReservationDeleteRequest;
-use App\Models\AdminUser;
+use App\Models\User;
 use Encore\Admin\Layout\Column;
 use Encore\Admin\Layout\Content;
 use Encore\Admin\Layout\Row;
@@ -76,11 +76,11 @@ class ReservationsController extends Controller
 
             $grid->id('ID')->sortable();
 
-            // The type of relation like adminUser has a bug!
-            $grid->column('admin_user.name', '用户姓名');
+            // The type of relation like user has a bug!
+            $grid->column('user.name', '用户姓名');
             $grid->column('classroom.number', '教室编号');
             $grid->column('租赁时间段')->display(function () {
-                return '从'. $this->begin_time .'到'. $this->end_time;
+                return '从'. $this->begin_time .'<br>' .'到'. $this->end_time;
             });
 
             $grid->created_at('创建于');
@@ -101,24 +101,24 @@ class ReservationsController extends Controller
 
             // $form->text('number', '编号')->placeholder('教室编号');
             $form->select('user_id', '用户')->options(function ($id) {
-                // $adminUser = AdminUser::find($id);
-                // if ($adminUser) {
-                //     return [$adminUser->id => $adminUser->name];
+                // $user = User::find($id);
+                // if ($user) {
+                //     return [$user->id => $user->name];
                 // }
-                $adminUsers = AdminUser::all();
+                $users = User::all();
                 $value = [];
-                foreach ($adminUsers as $adminUser) {
-                    $value[$adminUser->id] = $adminUser->name;
+                foreach ($users as $user) {
+                    $value[$user->id] = $user->name;
                 }
 
                 return $value;
             });
             $form->select('classroom_id', '教室')->options(function ($id) {
-                // $adminUser = AdminUser::find($id);
-                // if ($adminUser) {
-                //     return [$adminUser->id => $adminUser->name];
+                // $user = User::find($id);
+                // if ($user) {
+                //     return [$user->id => $user->name];
                 // }
-                $classrooms = Classroom::all();
+                $classrooms = Classroom::orderBy('number')->get();
                 $value = [];
                 foreach ($classrooms as $classroom) {
                     $value[$classroom->id] = $classroom->number;

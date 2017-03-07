@@ -11,6 +11,8 @@ class ReservationSeeder extends Seeder
      */
     public function run()
     {
+        \DB::table('reservations')->truncate();
+
         $faker = Faker\Factory::create();
 
         $count = 30;

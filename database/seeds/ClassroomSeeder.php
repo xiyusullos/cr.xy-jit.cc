@@ -11,6 +11,8 @@ class ClassroomSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Models\Classroom::class, 200)->create();
+        \DB::table('classrooms')->truncate();
+
+        factory(\App\Models\Classroom::class, 100)->create();
     }
 }

@@ -139,8 +139,8 @@ class ClassroomsController extends Controller
 
         return Admin::content(function (Content $content) {
 
-            $content->header('header');
-            $content->description('description');
+            $content->header('教室');
+            $content->description('列表');
 
             $content->body($this->grid());
         });
@@ -156,8 +156,8 @@ class ClassroomsController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('header');
-            $content->description('description');
+            $content->header('教室');
+            $content->description('添加');
 
             $content->body($this->form());
         });
@@ -246,8 +246,8 @@ class ClassroomsController extends Controller
     {
         return Admin::content(function (Content $content) use ($id) {
 
-            $content->header('header');
-            $content->description('description');
+            $content->header('教室');
+            $content->description('修改');
 
             $content->body($this->form()->edit($id));
         });

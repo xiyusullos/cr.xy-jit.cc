@@ -14,6 +14,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        app('view')->prependNamespace('admin', resource_path('views/laravel-admin'));
+        app('translator')->addNamespace('admin', resource_path('lang/laravel-admin'));
+
     }
 
     /**
@@ -39,6 +42,7 @@ class AppServiceProvider extends ServiceProvider
             \Barryvdh\Debugbar\ServiceProvider::class,
             \Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
             \Sven\ArtisanView\ArtisanViewServiceProvider::class,
+            \Way\Generators\GeneratorsServiceProvider::class,
             \Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider::class,
             \Orangehill\Iseed\IseedServiceProvider::class,
             \Iber\Generator\ModelGeneratorProvider::class,
