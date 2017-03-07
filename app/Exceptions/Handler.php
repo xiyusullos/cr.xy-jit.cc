@@ -55,7 +55,7 @@ class Handler extends ExceptionHandler
                     422,
                     'RQ1022',
                     '请求实体格式错误',
-                    $e->validator->getMessageBag()->toArray()
+                    $e->validator->getMessageBag()->first()
                 );
             }
             elseif ($e instanceof ForbiddenException) {
