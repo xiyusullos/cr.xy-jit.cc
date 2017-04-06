@@ -76,7 +76,7 @@ class ReservationsController extends Controller
 
             $grid->id('ID')->sortable();
 
-            // The type of relation like user has a bug!
+            // The type of relation like adminUser has a bug!
             $grid->column('user.name', '用户姓名');
             $grid->column('classroom.number', '教室编号');
             $grid->column('租赁时间段')->display(function () {
