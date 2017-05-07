@@ -59,26 +59,29 @@ class ClassroomFilterCriteria implements CriteriaInterface
         if (empty($from) && empty($to)) {
             // Not filter
         } elseif (empty($from)) {
-            $model = $model->whereDoesntHave('reservations')
-                ->orWhereHas('reservations', function ($q) use ($from) {
-                    $q->where('end_time', '<', $from);
-                })
-            ;
+            $model = $model->where(function ($q) use ($from) {
+                $q->whereDoesntHave('reservations')
+                    ->orWhereHas('reservations', function ($q) use ($from) {
+                        $q->where('end_time', '<', $from);
+                    })
+                ;
+            });
         } elseif (empty($to)) {
-            $model = $model->whereDoesntHave('reservations')
+            $model = $model->where(function ($q) use ($to) {
+                $q->whereDoesntHave('reservations')
                 ->orWhereHas('reservations', function ($q) use ($to) {
                     $q->where('begin_time', '>', $to);
                 })
             ;
+            });
         } else {
-            $model = $model
-                ->whereDoesntHave('reservations')
-                ->orWhereHas('reservations', function ($q) use ($from, $to) {
-                    $q->where('end_time', '<=', $from)
-                        ->orWhere('begin_time', '>=', $to)
-                    ;
-                })
-            ;
+            $model = $model->where(function ($q) use ($from, $to) {
+                $q->whereDoesntHave('reservations')
+                    ->orWhereHas('reservations', function ($q) use ($from, $to) {
+                        $q->where('end_time', '<=', $from)
+                            ->orWhere('begin_time', '>=', $to);
+                    });
+            });
         }
 
         return $model;
