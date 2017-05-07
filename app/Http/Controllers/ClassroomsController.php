@@ -126,8 +126,8 @@ class ClassroomsController extends Controller
      */
     public function index()
     {
-        $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
-        $this->repository->pushCriteria(ClassroomFilterCriteria::class);
+        // $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
+        // $this->repository->pushCriteria(ClassroomFilterCriteria::class);
         $classrooms = $this->repository->paginate();
 
         if (request()->wantsJson()) {
